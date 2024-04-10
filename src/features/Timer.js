@@ -6,6 +6,9 @@ import {CountDown} from "../components/CountDown";
 import  {RoundedButton} from "../components/ButtonRounded";
 import {spacing} from "../utils/size";
 import {Timing} from "./Timing";
+import {useKeepAwake} from "expo-keep-awake";
+
+
 
 const ONE_SECOND_IN_MS = 1000;
 const PATTERN = [
@@ -15,7 +18,8 @@ const PATTERN = [
 ];
 
 
-export const  Timer = ({task,clearSubject}) => {
+export const  Timer = ({task,clearSubject,onTimerEnd}) => {
+    useKeepAwake();
     const [isStarted,setStarted] = useState(false);
     const [progress,setPropress] = useState(1);
     const  [minutes,setMinutes] = useState(0.1);
@@ -25,6 +29,7 @@ export const  Timer = ({task,clearSubject}) => {
         setPropress(1);
         // setMinutes(0.1)
         reset()
+        onTimerEnd(task)
     }
    return(
        <View style={styles.container}>

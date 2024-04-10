@@ -26,19 +26,19 @@ export const Focus = ({addSubject}) => {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 0.2,
         // gap: 1
     },
     button: {
         justifyContent: 'center'
     },
     textInput: {
-        flex: 0.8,
-        marginRight: size.md
+        flex: 1,
+        marginRight: size.sm
     },
     inputContainer: {
         // flex: 1/4,
-        padding: size.xxxl,
+        padding: size.lg,
         justifyContent: 'top',
         backgroundColor: Colors.blue,
         flexDirection: 'row'
